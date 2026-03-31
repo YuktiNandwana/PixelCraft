@@ -1,0 +1,266 @@
+/* Glossy / Glassmorphism Theme */
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: radial-gradient(circle at top left, #e0c3fc 0%, #8ec5fc 100%);
+    margin: 0;
+    padding: 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    min-height: 550vh;
+    overflow: hidden; /* Scrollbars hide karne ke liye */
+}
+
+.brand-name {
+    color: #ffffff;
+    font-weight: 800;
+    margin-bottom: 15px;
+    font-size: 28px;
+    letter-spacing: 1px;
+    text-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+
+canvas {
+    background: #ffffff;
+    border-radius: 16px; 
+    cursor: crosshair;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.15); 
+    border: 2px solid rgba(255, 255, 255, 0.8);
+    touch-action: none; /* Mobile pe draw karte waqt screen scroll na ho */
+}
+
+.floating-toolbar {
+    position: fixed;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 20px;
+    border-radius: 50px; 
+    z-index: 1000;
+    background: rgba(255, 255, 255, 0.3); 
+    backdrop-filter: blur(16px); 
+    -webkit-backdrop-filter: blur(16px); 
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.1); 
+    border: 1px solid rgba(255, 255, 255, 0.6); 
+}
+
+.tool-btn {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    border: none;
+    background: transparent;
+    color: #333;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.3s ease;
+}
+
+.tool-btn:hover {
+    background: rgba(255, 255, 255, 0.5);
+    color: #000;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.tool-btn:active {
+    transform: scale(0.92);
+}
+
+.active-tool {
+    background: rgba(255, 255, 255, 0.8);
+    color: #1877f2;
+    box-shadow: inset 0 2px 5px rgba(255,255,255,0.5);
+}
+
+.color-picker-wrapper {
+    position: relative;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    overflow: hidden;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.2s;
+}
+
+.color-picker-wrapper:hover {
+    transform: scale(1.1);
+}
+
+.color-preview {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    border: 2px solid rgba(255, 255, 255, 0.8);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    pointer-events: none; 
+}
+
+#colorPicker {
+    opacity: 0;
+    position: absolute;
+    width: 200%;
+    height: 200%;
+    cursor: pointer;
+}
+
+.separator {
+    width: 2px;
+    height: 32px;
+    background: rgba(255, 255, 255, 0.4); 
+    margin: 0 5px;
+    border-radius: 2px;
+}
+
+#brushSize {
+    -webkit-appearance: none;
+    width: 80px;
+    height: 6px;
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 5px;
+    outline: none;
+    cursor: pointer;
+}
+
+#brushSize::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: #1877f2;
+    cursor: pointer;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    transition: transform 0.2s;
+}
+
+#brushSize::-webkit-slider-thumb:hover {
+    transform: scale(1.2);
+}
+
+#downloadBtn:hover {
+    background: rgba(40, 167, 69, 0.2);
+    color: #28a745;
+}
+
+/* --- DARK MODE BUTTON STYLING --- */
+.dark-mode-btn {
+    position: fixed;
+    top: 25px;
+    right: 30px;
+    background: rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.3s ease;
+    z-index: 1000;
+    color: #333;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.dark-mode-btn:hover {
+    background: rgba(255, 255, 255, 0.6);
+    transform: scale(1.1);
+}
+
+/* --- 🌙 THE DARK THEME MAGIC --- */
+body.dark-theme {
+    background: radial-gradient(circle at top left, #1a1a2e 0%, #16213e 100%);
+}
+
+/* YEH HAI WOH "SMART TRICK" */
+body.dark-theme canvas {
+    /* 1. Invert(0.85) = White background becomes Dark Grey, Black pen becomes white. */
+    /* 2. Hue-rotate(180deg) = Ensures your red/blue colors don't look completely weird. */
+    filter: invert(0.88) hue-rotate(180deg); 
+    border-color: rgba(255,255,255,0.1);
+    box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+}
+
+body.dark-theme .floating-toolbar {
+    background: rgba(0, 0, 0, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+body.dark-theme .tool-btn {
+    color: #e0e0e0;
+}
+
+body.dark-theme .tool-btn:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+}
+
+body.dark-theme .active-tool {
+    background: rgba(255, 255, 255, 0.15);
+    color: #4facfe;
+}
+
+body.dark-theme .brand-name {
+    text-shadow: 0 4px 10px rgba(0,0,0,0.5);
+}
+
+
+
+
+/* Canvas dynamic cursor classes */
+canvas.crosshair-cursor { cursor: crosshair; }
+canvas.move-cursor { cursor: move; }
+canvas.default-cursor { cursor: default; }
+
+/* 1. Canvas ko touch pe scroll/zoom hone se rokne ke liye */
+#board {
+    touch-action: none; /* Sabse zaroori line mobile drawing ke liye! */
+    max-width: 100%;
+}
+
+/* 2. Mobile screen (600px se choti) ke liye adjustments */
+@media (max-width: 600px) {
+    /* Canvas height mobile pe thodi aur badi kar dete hain */
+    #board {
+        height: 75vh !important; 
+    }
+
+    /* Toolbar ko screen se bahar jaane se rokna aur wrap karna */
+    .toolbar {
+        width: 95%;
+        padding: 8px;
+        gap: 8px;
+        flex-wrap: wrap; /* Agar jagah kam ho toh icons neeche wali line me aa jayein */
+        border-radius: 15px;
+    }
+
+    /* Buttons ko mobile ke hisaab se thoda chhota karna */
+    .tool-btn {
+        width: 35px;
+        height: 35px;
+    }
+
+    .tool-btn span {
+        font-size: 20px; /* Material icons ka size */
+    }
+
+    /* Brush size slider ko chhota karna */
+    #brushSize {
+        width: 70px;
+    }
+
+    /* Color picker preview ko adjust karna */
+    #colorPreview {
+        width: 25px;
+        height: 25px;
+    }
+}

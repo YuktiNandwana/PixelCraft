@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>PixelCraft - Premium Whiteboard</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <h1 class="brand-name">PixelCraft ✨</h1>
+
+    <button id="darkModeToggle" class="dark-mode-btn" title="Toggle Dark Mode">
+        <span class="material-icons">dark_mode</span>
+    </button>
+    
+    <canvas id="board"></canvas>
+
+    <div class="floating-toolbar">
+
+        <button class="tool-btn" data-tool="select" title="Select & Move">
+            <span class="material-icons">near_me</span>
+        </button>
+
+        <button class="tool-btn active-tool" data-tool="freehand" title="Freehand Pen">
+            <span class="material-icons">draw</span>
+        </button>
+        <button class="tool-btn" data-tool="rectangle" title="Rectangle">
+            <span class="material-icons">crop_square</span>
+        </button>
+        <button class="tool-btn" data-tool="circle" title="Circle">
+            <span class="material-icons">radio_button_unchecked</span>
+        </button>
+        <button class="tool-btn" data-tool="eraser" title="Eraser">
+            <span class="material-icons">ink_eraser</span>
+        </button>
+
+        <div class="separator"></div>
+
+        <input type="range" id="brushSize" min="1" max="30" value="4" title="Brush Size">
+
+        <div class="separator"></div>
+
+        <div class="color-picker-wrapper" title="Change Color">
+            <div id="colorPreview" class="color-preview" style="background: #000000;"></div>
+            <input type="color" id="colorPicker" value="#000000">
+        </div>
+
+        <div class="separator"></div>
+
+        <button class="tool-btn action-btn" id="undoBtn" title="Undo">
+            <span class="material-icons">undo</span>
+        </button>
+        <button class="tool-btn action-btn" id="redoBtn" title="Redo">
+            <span class="material-icons">redo</span>
+        </button>
+        <button class="tool-btn action-btn" id="clearBtn" title="Clear Board">
+            <span class="material-icons">delete_outline</span>
+        </button>
+        <button class="tool-btn action-btn" id="downloadBtn" title="Download Art">
+            <span class="material-icons">download</span>
+        </button>
+        
+    </div>
+    <script src="https://cdn.socket.io/4.8.1/socket.io.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
