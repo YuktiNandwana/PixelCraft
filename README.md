@@ -62,8 +62,7 @@ Contributions, issues, and feature requests are highly welcome! I built this to 
 
 5. Open a Pull Request
 
-Developed 
 
 https://github.com/user-attachments/assets/4de8fa31-c1c5-4ff3-b378-0b2155d5bd10
 
-by Yukti Nandwana
+ Developed by Yukti Nandwana
