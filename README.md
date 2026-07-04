@@ -1,4 +1,4 @@
-# PixelCraft 🎨
+# 🎨🎨 PixelCraft 🎨🎨
 **A Real-Time Multiplayer Collaborative Whiteboard**
 
 PixelCraft is a seamless, real-time digital canvas where multiple users can draw and collaborate simultaneously. Built from scratch to understand WebSockets, the app features zero-latency syncing—draw on your mobile device and watch it instantly appear on your desktop screen!
